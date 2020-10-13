@@ -52,9 +52,28 @@
 3. ##### Deploying 
     * Clone this repository via 
      ```git clone https://github.com/essentialprogramming/micro-reference-project-dokku.git``` command
-
-
-
+    * By executing the following git command ```git remote -v ``` you should get the following output :  
+      ![DokkuSetup](essentialprogramming-api/src/main/resources/img/remotev.png)  
+    * The last thing we need to do is add a Git remote that points to our Dokku instance.  
+    Since Dokku uses Git to deploy applications, every change you make that you want to deploy to the server must exist in Git at some stage.  
+    You can do this with the following command in the terminal :  
+    
+        ```
+           # With a domain name (replace example.com with your domain)
+           git remote add dokku dokku@example.com:express-demo
+           
+           # Without a domain name (replace the IP address with that of your server)
+           git remote add dokku dokku@123.456.789.012:express-demo
+         ```
+    * Finally, use ***git push*** to push your application to the server. 
+    This will kick off the build process using the Dockerfile attached to the project.  
+    ```git push dokku master```  
+    
+    * You will start to see a lot of logging information spill out into the terminal, telling you how the build process is going.  
+    After a couple of minutes, the build should finish and your site should be available.  
+    To test this, try to access the application in your browser.  
+        * If you are not using virtualhost naming and a domain, you should be able to reach it at ```http://<your IP address>:PORT``` and if you are using virtualhost naming and a domain you can reach it at ```http://express-demo.<your domain name>```.
+        > **_NOTE:_** ***PORT*** is the one exposed in the Docker file, in our case is **8080**
  
     
     
