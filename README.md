@@ -60,10 +60,10 @@
     
         ```
            # With a domain name (replace example.com with your domain)
-           git remote add dokku dokku@example.com:express-demo
+           git remote add dokku dokku@example.com:micro-reference-project-dokku
            
            # Without a domain name (replace the IP address with that of your server)
-           git remote add dokku dokku@123.456.789.012:express-demo
+           git remote add dokku dokku@123.456.789.012:reference-project-dokku
          ```
     * Finally, use ***git push*** to push your application to the server. 
     This will kick off the build process using the Dockerfile attached to the project.  
@@ -75,8 +75,19 @@
         * If you are not using virtualhost naming and a domain, you should be able to reach it at ```http://<your IP address>:PORT``` and if you are using virtualhost naming and a domain you can reach it at ```http://express-demo.<your domain name>```.
         > **_NOTE:_** ***PORT*** is the one exposed in the Docker file, in our case is **8080**
  
-    
-    
+    * Now all you need to do is to expose the web app to be accessible to the world. We can do that by opening a ssh connection with the server by executing the following command :  
+        ```
+        ssh root@46.101.88.57
+        ```
+      After you are inside the remote you need to setup firewall rules.  
+      Since you using Ubuntu, this is super easy using ufw. Execute the following commands :  
+      ```
+      sudo ufw disable
+      sudo ufw allow 8080/tcp
+      sudo ufw enable
+      ```
+      
+    * Now you can access your web app from outside world by accessing from the browser the following url ```http://<your IP address>:PORT```
     
     
    
