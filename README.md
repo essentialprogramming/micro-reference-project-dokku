@@ -1,6 +1,6 @@
 ##  Steps for deploying Spring project to Dokku 
 1. ##### Setting up DigitalOcean droplet  
-   * Log in into Digital Ocean account
+   * Log in into Digital Ocean account  
    * Choose the desired project where you want your droplet to reside from left hand side menu. In our example we chose to create our droplet in ***Razvan*** project. 
    ![ProjectTree](essentialprogramming-api/src/main/resources/img/tree.png)
    * After the desired Project is selected, create a new droplet by clicking the ```Create``` green button and after that select Droplet item from the list.  
