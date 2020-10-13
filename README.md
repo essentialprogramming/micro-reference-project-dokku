@@ -1,5 +1,5 @@
-##Steps for deploying Spring project to Dokku 
-1. #####Setting up DigitalOcean droplet  
+##  Steps for deploying Spring project to Dokku 
+1. ##### Setting up DigitalOcean droplet  
    * Log in into Digital Ocean account
    * Choose the desired project where you want your droplet to reside from left hand side. In our example we chose to create our droplet in ***Razvan*** project. 
    ![ProjectTree](essentialprogramming-api/src/main/resources/img/tree.png)
@@ -23,7 +23,7 @@
    and finally press the ```Create Droplet``` green button at the end of the page.  
    *It will take a few minutes for it to be available*
    
-2. #####Setting up the droplet
+2. ##### Setting up the droplet
    * Once the Droplet has been created, it will have an IP address.  
     Copy the IP address into your clipboard, and open a terminal.  
     We're going to use SSH to connect to our Droplet.
@@ -49,7 +49,7 @@
         * If you do not have a domain that you wish to use for your Dokku server, then you should leave this box unchecked. This will mean that your apps would become available on a specific port number, e.g. http://46.101.88.57:3000. You will need to configure the firewall to open specific application ports.
     * Now you can click "Finish Setup" to proceed. Your Dokku server is now ready!
    
-3. #####Deploying 
+3. ##### Deploying 
     * Clone this repository via 
      ```git clone https://github.com/essentialprogramming/micro-reference-project-dokku.git``` command
 
