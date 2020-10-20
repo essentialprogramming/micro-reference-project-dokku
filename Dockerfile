@@ -11,6 +11,6 @@ RUN mvn clean install -Dmaven.test.skip=true
 FROM openjdk:8-jre
 COPY --from=builder /app/essentialprogramming-api/target/uber-essentialprogramming-api-1.0.0-SNAPSHOT.jar /app/uber-essentialprogramming-api-1.0.0-SNAPSHOT.jar
 
-EXPOSE 8080
+EXPOSE 8081
 
 CMD java -jar ./app/uber-essentialprogramming-api-1.0.0-SNAPSHOT.jar
