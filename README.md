@@ -87,12 +87,31 @@
       sudo ufw enable
       ```
       
-    * Now you can access your web app from outside world by accessing from the browser the following url ```http://<your IP address>:PORT```
-    
-    
-   
- 
+    * Now you can access your web app from outside world by accessing from the browser the following url ```http://<your IP address>:PORT```  
+4. #### Useful commands  
+    * Dokku specific commands :  
+        * ```dokku apps:list``` - lists all the apps deployed with dokku on the environment
+        * ```dokku enter [app_name]``` - enter running app container
+        * ```apps:destroy [app_name]``` - permanently destroys an app
+        * ```dokku proxy:[app_name] http:8070:8070``` - adds proxy port mappins to an app 
+             > **_NOTE:_** This command will be used in case you want to update the port mappings 
+             for a already deployed app (Server.class port value, and EXPOSE PORT value in Dockerfile needs to be updated aswell in order to successfully update the port of an already deployed app).  
+             If you deploy it for the first time and in the Dockerfile the EXPOSE PORT command is specified  
+             there is no need to execute this command.  
+        * ```dokku apps:unlock [app_name]``` - unlocks an app for deployment (usually used when a deploy lock occurs)  
+        * Other commands could be found by executing ```dokku help``` command
+        
+    * Dokku specific commands and other commands to execute in order to analyse and free disk space :  
+        * ```dokku cleanup``` - cleans up exited/dead Docker containers and removes dangling images
+        * ```docker system prune -a -f``` - removes all unused containers, networks, images (both dangling and unreferenced)
+        * ```docker container prune``` - removes all stopped containers.
+        * If you want to check disk space you can always execute ```df -h``` command but you can also install **ncdu** which is a disk usage viewer.  
+        Do this by executing the following commands :  
+        ```sudo apt-get update -y```  
+        ```sudo apt-get install -y ncdu```  
+        Start the ncdu by executing : ```sudo ncdu```
 
+                                         
 
 
    
